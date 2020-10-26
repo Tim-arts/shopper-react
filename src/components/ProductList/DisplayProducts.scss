@@ -1,0 +1,59 @@
+@import './../../ui/base/variables';
+@import './../../ui/base/helpers';
+@import './../../ui/components/checkbox';
+
+$spacing: 20px;
+
+ul {
+    li {
+        height: 60px;
+        background-color: $grey;
+        padding: 0 $spacing;
+        margin: $spacing 0;
+        border-radius: 50px;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+            margin-right: $spacing;
+        }
+
+        label {
+            color: $black;
+        }
+
+        &:hover {
+            background-color: $yellow-hard;
+            transition: background-color .3s;
+        }
+
+        &.active {
+            background-color: $yellow-hard;
+        }
+    }
+}
+
+input[type="checkbox"], label {
+    cursor: pointer;
+}
+
+.options {
+    display: none;
+
+    .delete-item {
+        padding: 10px;
+        top: 8px;
+        right: 20px;
+
+        i {
+            color: $white;
+        }
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    &.active {
+        display: block;
+    }
+}

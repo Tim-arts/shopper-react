@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap");
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+body {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 0;
+}
+ul li {
+  list-style-type: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+button:focus {
+  outline: none;
+}
+
+.product-list {
+  display: none;
+}
+.product-list.active {
+  display: block;
+}
+
+/*# sourceMappingURL=App.css.map */

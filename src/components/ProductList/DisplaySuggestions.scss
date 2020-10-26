@@ -1,0 +1,40 @@
+@import './../../ui/base/variables';
+
+.button-container {
+    --distance: 30px;
+    right: var(--distance);
+    bottom: var(--distance);
+    z-index: 1000;
+
+    button {
+        --w: 50px;
+        width: var(--w);
+        height: var(--w);
+        background-color: $yellow-hard;
+        border-radius: var(--w);
+        box-shadow: $box-shadow-level-1;
+        transition: background-color ease .3s;
+
+        i {
+            font-size: var(--f, 18px);
+            color: $white;
+            top: 2px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    @media screen and (min-width: $extra-small-screen) {
+        --distance: 60px;
+
+        button {
+            --w: 60px;
+
+            i {
+                --f: 22px;
+            }
+        }
+    }
+}
