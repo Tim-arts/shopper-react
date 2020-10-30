@@ -1,7 +1,6 @@
 import React from 'react';
 
 /* Import components */
-import Header from './Header';
 import DisplayProducts from './DisplayProducts';
 import DisplaySuggestions from "./DisplaySuggestions";
 
@@ -18,7 +17,6 @@ class ProductList extends React.Component {
         
         return (
             <div>
-                <Header />
                 <DisplayProducts items={this.props.items} />
                 <DisplaySuggestions />
             </div>

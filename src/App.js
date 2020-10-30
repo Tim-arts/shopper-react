@@ -5,6 +5,7 @@ import suggestions from './static/suggestions.json';
 import products from './static/products.json';
 
 /* Import components */
+import Header from './components/template/Header';
 import ProductList from './components/ProductList/ProductList';
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
     render () {
         return (
             <div className="wrapper">
+                <Header/>
                 <ProductList items={this.state.products} />
             </div>
         )
