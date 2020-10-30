@@ -37,8 +37,6 @@ input[type="checkbox"], label {
 }
 
 .options {
-    display: none;
-
     .delete-item {
         padding: 10px;
         top: 8px;
@@ -51,9 +49,5 @@ input[type="checkbox"], label {
         &:hover {
             opacity: .5;
         }
-    }
-
-    &.active {
-        display: block;
     }
 }

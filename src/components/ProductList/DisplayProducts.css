@@ -167,9 +167,6 @@ input[type=checkbox], label {
   cursor: pointer;
 }
 
-.options {
-  display: none;
-}
 .options .delete-item {
   padding: 10px;
   top: 8px;
@@ -180,9 +177,6 @@ input[type=checkbox], label {
 }
 .options .delete-item:hover {
   opacity: 0.5;
-}
-.options.active {
-  display: block;
 }
 
 /*# sourceMappingURL=DisplayProducts.css.map */

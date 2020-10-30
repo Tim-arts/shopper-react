@@ -19,3 +19,13 @@ export function String_to_slug (str) {
 export function CheckValueInArrayOfObjects (value, array) {
     return array.filter(obj => obj.slug === value).length > 0;
 }
+
+export function ToggleValueFromArray (value, array) {
+    if (array.includes(value)) {
+        array = array.filter(e => e!== value);
+    } else {
+        array.push(value);
+    }
+    
+    return array;
+}

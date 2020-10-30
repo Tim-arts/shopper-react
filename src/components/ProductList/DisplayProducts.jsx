@@ -1,12 +1,12 @@
 import React  from 'react';
 import './DisplayProducts.css';
+import { ToggleValueFromArray } from '../../assets/helpers';
 
 class DisplayProducts extends React.Component {
     constructor (props) {
         super(props);
         
         this.state = {
-            hoverProducts: ([...this.props.items.keys()].map(() => false)),
             selectedProducts: []
         };
     }
@@ -19,14 +19,12 @@ class DisplayProducts extends React.Component {
                         <ul className="item-list">
                             {
                                 this.props.items.map((item, index) => (
-                                    <li className={'item d-flex align-items-center position-relative' + this.displayHoverActiveClass(item.slug)} key={item.name}
-                                        onClick={this.triggerChange.bind(this, item.slug)}
-                                        onMouseEnter={this.toggleDisplayOptions.bind(this, index)}
-                                        onMouseLeave={this.toggleDisplayOptions.bind(this, index)}
+                                    <li className={'item d-flex align-items-center position-relative' + this.hoverActiveClass(item.slug)} key={item.name}
+                                        onClick={this.triggerCheckboxChange.bind(this, item.slug)}
                                     >
-                                        <input type="checkbox" id={`checkbox-${item.index}`} onClick={this.triggerChange.bind(this, item.index)} />
+                                        <input type="checkbox" id={`checkbox-${item.index}`} />
                                         <label htmlFor={`checkbox-${item.index}`}>{item.name}</label>
-                                        <div className={this.displayClasses('options', index)}>
+                                        <div className="options">
                                             <button className="delete-item position-absolute">
                                                 <i className="fas fa-times"/>
                                             </button>
@@ -41,42 +39,20 @@ class DisplayProducts extends React.Component {
         )
     }
     
-    triggerChange (value, e) {
+    triggerCheckboxChange (value, e) {
         let element = e.target;
-        
+        let array = ToggleValueFromArray(value, this.state.selectedProducts);
+
         if (element.tagName === 'LI') {
             let checkbox = element.querySelector('[type="checkbox"]');
             checkbox.checked = !checkbox.checked;
         }
-        
-        this.toggleSelected(value);
+
+        this.setState({selectedProducts: array});
     }
-    
-    toggleDisplayOptions (index) {
-        let hover = [...this.state.hoverProducts];
-        hover[index] = !hover[index];
-    
-        this.setState({hoverProducts: hover});
-    }
-    
-    toggleSelected (value) {
-        let selected = this.state.selectedProducts;
-        
-        if (selected.includes(value)) {
-            selected = selected.filter(e => e!== value);
-        } else {
-            selected.push(value);
-        }
-    
-        this.setState({selectedProducts: selected});
-    }
-    
-    displayHoverActiveClass (value) {
+
+    hoverActiveClass (value) {
         return this.state.selectedProducts.includes(value) ? ' active': ''
-    }
-    
-    displayClasses (classes, index) {
-        return classes += this.state.hoverProducts[index] ? ' active': '';
     }
 }
 
